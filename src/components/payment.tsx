@@ -40,6 +40,7 @@ const Payment = ({ amount }: { amount: number }) => {
         color: "#3399cc",
       },
     };
+    // @ts-ignore: Unreachable code error
     const rzp1 = new Razorpay(options);
     rzp1.on("payment.failed", function (response: any) {
       alert(response.error.code);
