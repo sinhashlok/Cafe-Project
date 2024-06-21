@@ -6,6 +6,10 @@ import { motion } from "framer-motion";
 import { usePathname } from "next/navigation";
 import { CAFE, CAFE_MENU } from "@/utils/interface";
 import { MapPin } from "lucide-react";
+import { CART } from "@/utils/interface";
+import { RootState } from "@/redux/store";
+import { useDispatch, useSelector } from "react-redux";
+import { addItem, clearCart } from "@/redux/features/cartSlice";
 
 const RestaurantMenu = () => {
   const pathname = usePathname();
@@ -13,7 +17,33 @@ const RestaurantMenu = () => {
   const [cafe, setCafe] = useState<CAFE>();
   const [cafeMenu, setCafeMenu] = useState<CAFE_MENU>();
 
+  const dispatch = useDispatch();
   useEffect(() => {
+    async function getCart() {
+      await fetch("/api/cafe/cart/getCart")
+        .then(async (res) => {
+          const data = await res.json();
+          const cart = data?.data;
+          dispatch(clearCart());
+          cart?.map((item: CART) => {
+            for (let i = item.count; i > 0; i--) {
+              dispatch(
+                addItem({
+                  _id: item.itemId,
+                  itemName: item.itemName,
+                  price: item.price,
+                  rating: item.rating,
+                  isVeg: item.isVeg,
+                  cafeId: item.cafeId,
+                })
+              );
+            }
+          });
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
     async function fetchData() {
       const res = await fetch("/api/cafe/getCafeById", {
         method: "POST",
@@ -26,7 +56,9 @@ const RestaurantMenu = () => {
     }
 
     fetchData();
-  }, [cafeId]);
+
+    getCart();
+  }, []);
 
   return (
     <div>

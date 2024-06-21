@@ -1,11 +1,10 @@
 "use client";
 
 import { useDispatch, useSelector } from "react-redux";
-import { addItem, removeItem, clearCart } from "@/redux/features/cartSlice";
+import { addItem, removeItem } from "@/redux/features/cartSlice";
 import { motion } from "framer-motion";
-import { useEffect } from "react";
 import toast, { Toaster } from "react-hot-toast";
-import { CART, MENU_ITEMS, UPDATE_CART } from "@/utils/interface";
+import { CART, MENU_ITEMS } from "@/utils/interface";
 import { RootState } from "@/redux/store";
 
 const MenuSections = ({
@@ -19,34 +18,6 @@ const MenuSections = ({
 }) => {
   const cartItems = useSelector((store: RootState) => store.cart.items);
   const dispatch = useDispatch();
-  useEffect(() => {
-    async function getCart() {
-      await fetch("/api/cafe/cart/getCart")
-        .then(async (res) => {
-          const data = await res.json();
-          const cart = data?.data;
-          dispatch(clearCart());
-          cart?.map((item: CART) => {
-            for (let i = item.count; i > 0; i--) {
-              dispatch(
-                addItem({
-                  _id: item.itemId,
-                  itemName: item.itemName,
-                  price: item.price,
-                  rating: item.rating,
-                  isVeg: item.isVeg,
-                  cafeId: item.cafeId,
-                })
-              );
-            }
-          });
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-    }
-    getCart();
-  }, []);
   const handleAddItem = async (item: MENU_ITEMS) => {
     await fetch("/api/cafe/cart/addItem", {
       method: "POST",

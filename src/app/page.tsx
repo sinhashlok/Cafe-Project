@@ -7,7 +7,6 @@ import { motion } from "framer-motion";
 import { useDispatch } from "react-redux";
 import { addItem, clearCart } from "@/redux/features/cartSlice";
 import { CAFE, CART } from "@/utils/interface";
-import { FilterMenu } from "@/components/Filter";
 
 const Page = () => {
   const [cafes, setCafes] = useState<any>([]);
@@ -89,7 +88,6 @@ const Page = () => {
               setSearchText(e.target.value);
             }}
           />
-          <FilterMenu setCafes={setCafes} />
         </div>
       </motion.div>
       {cafes.length === 0 ? (
