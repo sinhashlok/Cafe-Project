@@ -1,0 +1,66 @@
+[{
+  "_id": {
+    "$oid": "667044127d41eb56d3c2b944"
+  },
+  "name": "Third Wave Coffee",
+  "rating": "4",
+  "__v": 0,
+  "reviews": 220,
+  "costForTwo": 500,
+  "deliveryTime": 25
+},
+{
+  "_id": {
+    "$oid": "667043fb7d41eb56d3c2b943"
+  },
+  "name": "Starbucks",
+  "rating": "4.5",
+  "__v": 0,
+  "reviews": 550,
+  "costForTwo": 1200,
+  "deliveryTime": 75
+},
+{
+  "_id": {
+    "$oid": "6670444c7d41eb56d3c2b948"
+  },
+  "name": "Kissaten",
+  "rating": "3.8",
+  "__v": 0,
+  "reviews": 120,
+  "costForTwo": 750,
+  "deliveryTime": 45
+},
+{
+  "_id": {
+    "$oid": "667044457d41eb56d3c2b947"
+  },
+  "name": "Kurokatsusan",
+  "rating": "4.6",
+  "__v": 0,
+  "reviews": 90,
+  "costForTwo": 450,
+  "deliveryTime": 50
+},
+{
+  "_id": {
+    "$oid": "6670443c7d41eb56d3c2b946"
+  },
+  "name": "Madeira & Mime",
+  "rating": "4.7",
+  "__v": 0,
+  "reviews": 5,
+  "costForTwo": 900,
+  "deliveryTime": 60
+},
+{
+  "_id": {
+    "$oid": "667044347d41eb56d3c2b945"
+  },
+  "name": "Blue Tokai",
+  "rating": "4.2",
+  "__v": 0,
+  "reviews": 200,
+  "costForTwo": 1500,
+  "deliveryTime": 30
+}]

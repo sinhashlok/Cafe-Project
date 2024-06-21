@@ -1,0 +1,696 @@
+[{
+  "_id": {
+    "$oid": "6670532d9cface7652779d16"
+  },
+  "cafeId": {
+    "$oid": "667043fb7d41eb56d3c2b943"
+  },
+  "recommended": [
+    {
+      "itemName": "Coke",
+      "price": "150",
+      "rating": "4.0",
+      "isVeg": true,
+      "_id": {
+        "$oid": "6670532d9cface7652779d20"
+      }
+    },
+    {
+      "itemName": "Espresso",
+      "price": "330",
+      "rating": "4.6",
+      "isVeg": true,
+      "_id": {
+        "$oid": "6670532d9cface7652779d1a"
+      }
+    },
+    {
+      "itemName": "Cappuccino",
+      "price": "350",
+      "rating": "4.2",
+      "isVeg": true,
+      "_id": {
+        "$oid": "6670532d9cface7652779d1c"
+      }
+    }
+  ],
+  "coffee": [
+    {
+      "itemName": "Espresso",
+      "price": "330",
+      "rating": "4.6",
+      "isVeg": true,
+      "_id": {
+        "$oid": "6670532d9cface7652779d1a"
+      }
+    },
+    {
+      "itemName": "Espresso Shot",
+      "price": "130",
+      "rating": "3.8",
+      "isVeg": true,
+      "_id": {
+        "$oid": "6670532d9cface7652779d1b"
+      }
+    },
+    {
+      "itemName": "Cappuccino",
+      "price": "350",
+      "rating": "4.2",
+      "isVeg": true,
+      "_id": {
+        "$oid": "6670532d9cface7652779d1c"
+      }
+    },
+    {
+      "itemName": "Americano",
+      "price": "430",
+      "rating": "3.7",
+      "isVeg": false,
+      "_id": {
+        "$oid": "6670532d9cface7652779d1d"
+      }
+    }
+  ],
+  "sandwich": [
+    {
+      "itemName": "Veg Sandwich",
+      "price": "230",
+      "rating": "3.2",
+      "isVeg": true,
+      "_id": {
+        "$oid": "6670532d9cface7652779d1e"
+      }
+    },
+    {
+      "itemName": "Nonveg Sandwich",
+      "price": "280",
+      "rating": "3.9",
+      "isVeg": false,
+      "_id": {
+        "$oid": "6670532d9cface7652779d1f"
+      }
+    }
+  ],
+  "drinks": [
+    {
+      "itemName": "Coke",
+      "price": "150",
+      "rating": "4.0",
+      "isVeg": true,
+      "_id": {
+        "$oid": "6670532d9cface7652779d20"
+      }
+    },
+    {
+      "itemName": "Tea",
+      "price": "180",
+      "rating": "4.2",
+      "isVeg": true,
+      "_id": {
+        "$oid": "6670532d9cface7652779d21"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66705361412864333bdf4932"
+  },
+  "cafeId": {
+    "$oid": "667044127d41eb56d3c2b944"
+  },
+  "recommended": [
+    {
+      "itemName": "Coke",
+      "price": "150",
+      "rating": "4.0",
+      "isVeg": true,
+      "_id": {
+        "$oid": "66705361412864333bdf493c"
+      }
+    },
+    {
+      "itemName": "Espresso",
+      "price": "330",
+      "rating": "4.6",
+      "isVeg": true,
+      "_id": {
+        "$oid": "66705361412864333bdf4936"
+      }
+    },
+    {
+      "itemName": "Cappuccino",
+      "price": "350",
+      "rating": "4.2",
+      "isVeg": true,
+      "_id": {
+        "$oid": "66705361412864333bdf4938"
+      }
+    }
+  ],
+  "coffee": [
+    {
+      "itemName": "Espresso",
+      "price": "330",
+      "rating": "4.6",
+      "isVeg": true,
+      "_id": {
+        "$oid": "66705361412864333bdf4936"
+      }
+    },
+    {
+      "itemName": "Espresso Shot",
+      "price": "130",
+      "rating": "3.8",
+      "isVeg": true,
+      "_id": {
+        "$oid": "66705361412864333bdf4937"
+      }
+    },
+    {
+      "itemName": "Cappuccino",
+      "price": "350",
+      "rating": "4.2",
+      "isVeg": true,
+      "_id": {
+        "$oid": "66705361412864333bdf4938"
+      }
+    },
+    {
+      "itemName": "Americano",
+      "price": "430",
+      "rating": "3.7",
+      "isVeg": false,
+      "_id": {
+        "$oid": "66705361412864333bdf4939"
+      }
+    }
+  ],
+  "sandwich": [
+    {
+      "itemName": "Veg Sandwich",
+      "price": "230",
+      "rating": "3.2",
+      "isVeg": true,
+      "_id": {
+        "$oid": "66705361412864333bdf493a"
+      }
+    },
+    {
+      "itemName": "Nonveg Sandwich",
+      "price": "280",
+      "rating": "3.9",
+      "isVeg": false,
+      "_id": {
+        "$oid": "66705361412864333bdf493b"
+      }
+    }
+  ],
+  "drinks": [
+    {
+      "itemName": "Coke",
+      "price": "150",
+      "rating": "4.0",
+      "isVeg": true,
+      "_id": {
+        "$oid": "66705361412864333bdf493c"
+      }
+    },
+    {
+      "itemName": "Tea",
+      "price": "180",
+      "rating": "4.2",
+      "isVeg": true,
+      "_id": {
+        "$oid": "66705361412864333bdf493d"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "667053c82992f2ebea77199b"
+  },
+  "cafeId": {
+    "$oid": "667044347d41eb56d3c2b945"
+  },
+  "recommended": [
+    {
+      "itemName": "Coke",
+      "price": "150",
+      "rating": "4.0",
+      "isVeg": true,
+      "_id": {
+        "$oid": "667053c82992f2ebea7719a5"
+      }
+    },
+    {
+      "itemName": "Espresso",
+      "price": "330",
+      "rating": "4.6",
+      "isVeg": true,
+      "_id": {
+        "$oid": "667053c82992f2ebea77199f"
+      }
+    },
+    {
+      "itemName": "Cappuccino",
+      "price": "350",
+      "rating": "4.2",
+      "isVeg": true,
+      "_id": {
+        "$oid": "667053c82992f2ebea7719a1"
+      }
+    }
+  ],
+  "coffee": [
+    {
+      "itemName": "Espresso",
+      "price": "330",
+      "rating": "4.6",
+      "isVeg": true,
+      "_id": {
+        "$oid": "667053c82992f2ebea77199f"
+      }
+    },
+    {
+      "itemName": "Espresso Shot",
+      "price": "130",
+      "rating": "3.8",
+      "isVeg": true,
+      "_id": {
+        "$oid": "667053c82992f2ebea7719a0"
+      }
+    },
+    {
+      "itemName": "Cappuccino",
+      "price": "350",
+      "rating": "4.2",
+      "isVeg": true,
+      "_id": {
+        "$oid": "667053c82992f2ebea7719a1"
+      }
+    },
+    {
+      "itemName": "Americano",
+      "price": "430",
+      "rating": "3.7",
+      "isVeg": false,
+      "_id": {
+        "$oid": "667053c82992f2ebea7719a2"
+      }
+    }
+  ],
+  "sandwich": [
+    {
+      "itemName": "Veg Sandwich",
+      "price": "230",
+      "rating": "3.2",
+      "isVeg": true,
+      "_id": {
+        "$oid": "667053c82992f2ebea7719a3"
+      }
+    },
+    {
+      "itemName": "Nonveg Sandwich",
+      "price": "280",
+      "rating": "3.9",
+      "isVeg": false,
+      "_id": {
+        "$oid": "667053c82992f2ebea7719a4"
+      }
+    }
+  ],
+  "drinks": [
+    {
+      "itemName": "Coke",
+      "price": "150",
+      "rating": "4.0",
+      "isVeg": true,
+      "_id": {
+        "$oid": "667053c82992f2ebea7719a5"
+      }
+    },
+    {
+      "itemName": "Tea",
+      "price": "180",
+      "rating": "4.2",
+      "isVeg": true,
+      "_id": {
+        "$oid": "667053c82992f2ebea7719a6"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "667053ef711890b23d56d60d"
+  },
+  "cafeId": {
+    "$oid": "6670443c7d41eb56d3c2b946"
+  },
+  "recommended": [
+    {
+      "itemName": "Coke",
+      "price": "150",
+      "rating": "4.0",
+      "isVeg": true,
+      "_id": {
+        "$oid": "667053ef711890b23d56d617"
+      }
+    },
+    {
+      "itemName": "Espresso",
+      "price": "330",
+      "rating": "4.6",
+      "isVeg": true,
+      "_id": {
+        "$oid": "667053ef711890b23d56d611"
+      }
+    },
+    {
+      "itemName": "Cappuccino",
+      "price": "350",
+      "rating": "4.2",
+      "isVeg": true,
+      "_id": {
+        "$oid": "667053ef711890b23d56d613"
+      }
+    }
+  ],
+  "coffee": [
+    {
+      "itemName": "Espresso",
+      "price": "330",
+      "rating": "4.6",
+      "isVeg": true,
+      "_id": {
+        "$oid": "667053ef711890b23d56d611"
+      }
+    },
+    {
+      "itemName": "Espresso Shot",
+      "price": "130",
+      "rating": "3.8",
+      "isVeg": true,
+      "_id": {
+        "$oid": "667053ef711890b23d56d612"
+      }
+    },
+    {
+      "itemName": "Cappuccino",
+      "price": "350",
+      "rating": "4.2",
+      "isVeg": true,
+      "_id": {
+        "$oid": "667053ef711890b23d56d613"
+      }
+    },
+    {
+      "itemName": "Americano",
+      "price": "430",
+      "rating": "3.7",
+      "isVeg": false,
+      "_id": {
+        "$oid": "667053ef711890b23d56d614"
+      }
+    }
+  ],
+  "sandwich": [
+    {
+      "itemName": "Veg Sandwich",
+      "price": "230",
+      "rating": "3.2",
+      "isVeg": true,
+      "_id": {
+        "$oid": "667053ef711890b23d56d615"
+      }
+    },
+    {
+      "itemName": "Nonveg Sandwich",
+      "price": "280",
+      "rating": "3.9",
+      "isVeg": false,
+      "_id": {
+        "$oid": "667053ef711890b23d56d616"
+      }
+    }
+  ],
+  "drinks": [
+    {
+      "itemName": "Coke",
+      "price": "150",
+      "rating": "4.0",
+      "isVeg": true,
+      "_id": {
+        "$oid": "667053ef711890b23d56d617"
+      }
+    },
+    {
+      "itemName": "Tea",
+      "price": "180",
+      "rating": "4.2",
+      "isVeg": true,
+      "_id": {
+        "$oid": "667053ef711890b23d56d618"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "667054188e8346b1c078c364"
+  },
+  "cafeId": {
+    "$oid": "667044457d41eb56d3c2b947"
+  },
+  "recommended": [
+    {
+      "itemName": "Coke",
+      "price": "150",
+      "rating": "4.0",
+      "isVeg": true,
+      "_id": {
+        "$oid": "667054188e8346b1c078c36e"
+      }
+    },
+    {
+      "itemName": "Espresso",
+      "price": "330",
+      "rating": "4.6",
+      "isVeg": true,
+      "_id": {
+        "$oid": "667054188e8346b1c078c368"
+      }
+    },
+    {
+      "itemName": "Cappuccino",
+      "price": "350",
+      "rating": "4.2",
+      "isVeg": true,
+      "_id": {
+        "$oid": "667054188e8346b1c078c36a"
+      }
+    }
+  ],
+  "coffee": [
+    {
+      "itemName": "Espresso",
+      "price": "330",
+      "rating": "4.6",
+      "isVeg": true,
+      "_id": {
+        "$oid": "667054188e8346b1c078c368"
+      }
+    },
+    {
+      "itemName": "Espresso Shot",
+      "price": "130",
+      "rating": "3.8",
+      "isVeg": true,
+      "_id": {
+        "$oid": "667054188e8346b1c078c369"
+      }
+    },
+    {
+      "itemName": "Cappuccino",
+      "price": "350",
+      "rating": "4.2",
+      "isVeg": true,
+      "_id": {
+        "$oid": "667054188e8346b1c078c36a"
+      }
+    },
+    {
+      "itemName": "Americano",
+      "price": "430",
+      "rating": "3.7",
+      "isVeg": false,
+      "_id": {
+        "$oid": "667054188e8346b1c078c36b"
+      }
+    }
+  ],
+  "sandwich": [
+    {
+      "itemName": "Veg Sandwich",
+      "price": "230",
+      "rating": "3.2",
+      "isVeg": true,
+      "_id": {
+        "$oid": "667054188e8346b1c078c36c"
+      }
+    },
+    {
+      "itemName": "Nonveg Sandwich",
+      "price": "280",
+      "rating": "3.9",
+      "isVeg": false,
+      "_id": {
+        "$oid": "667054188e8346b1c078c36d"
+      }
+    }
+  ],
+  "drinks": [
+    {
+      "itemName": "Coke",
+      "price": "150",
+      "rating": "4.0",
+      "isVeg": true,
+      "_id": {
+        "$oid": "667054188e8346b1c078c36e"
+      }
+    },
+    {
+      "itemName": "Tea",
+      "price": "180",
+      "rating": "4.2",
+      "isVeg": true,
+      "_id": {
+        "$oid": "667054188e8346b1c078c36f"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6670543e10739ea00557ce89"
+  },
+  "cafeId": {
+    "$oid": "6670444c7d41eb56d3c2b948"
+  },
+  "recommended": [
+    {
+      "itemName": "Coke",
+      "price": "150",
+      "rating": "4.0",
+      "isVeg": true,
+      "_id": {
+        "$oid": "6670543e10739ea00557ce93"
+      }
+    },
+    {
+      "itemName": "Espresso",
+      "price": "330",
+      "rating": "4.6",
+      "isVeg": true,
+      "_id": {
+        "$oid": "6670543e10739ea00557ce8d"
+      }
+    },
+    {
+      "itemName": "Cappuccino",
+      "price": "350",
+      "rating": "4.2",
+      "isVeg": true,
+      "_id": {
+        "$oid": "6670543e10739ea00557ce8f"
+      }
+    }
+  ],
+  "coffee": [
+    {
+      "itemName": "Espresso",
+      "price": "330",
+      "rating": "4.6",
+      "isVeg": true,
+      "_id": {
+        "$oid": "6670543e10739ea00557ce8d"
+      }
+    },
+    {
+      "itemName": "Espresso Shot",
+      "price": "130",
+      "rating": "3.8",
+      "isVeg": true,
+      "_id": {
+        "$oid": "6670543e10739ea00557ce8e"
+      }
+    },
+    {
+      "itemName": "Cappuccino",
+      "price": "350",
+      "rating": "4.2",
+      "isVeg": true,
+      "_id": {
+        "$oid": "6670543e10739ea00557ce8f"
+      }
+    },
+    {
+      "itemName": "Americano",
+      "price": "430",
+      "rating": "3.7",
+      "isVeg": false,
+      "_id": {
+        "$oid": "6670543e10739ea00557ce90"
+      }
+    }
+  ],
+  "sandwich": [
+    {
+      "itemName": "Veg Sandwich",
+      "price": "230",
+      "rating": "3.2",
+      "isVeg": true,
+      "_id": {
+        "$oid": "6670543e10739ea00557ce91"
+      }
+    },
+    {
+      "itemName": "Nonveg Sandwich",
+      "price": "280",
+      "rating": "3.9",
+      "isVeg": false,
+      "_id": {
+        "$oid": "6670543e10739ea00557ce92"
+      }
+    }
+  ],
+  "drinks": [
+    {
+      "itemName": "Coke",
+      "price": "150",
+      "rating": "4.0",
+      "isVeg": true,
+      "_id": {
+        "$oid": "6670543e10739ea00557ce93"
+      }
+    },
+    {
+      "itemName": "Tea",
+      "price": "180",
+      "rating": "4.2",
+      "isVeg": true,
+      "_id": {
+        "$oid": "6670543e10739ea00557ce94"
+      }
+    }
+  ],
+  "__v": 0
+}]
