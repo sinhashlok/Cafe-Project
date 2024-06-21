@@ -8,7 +8,6 @@ export async function POST(req: NextRequest) {
   try {
     const body = await req.json();
     const { cafeId } = body;
-    console.log(cafeId);
 
     const cafe = await Restaurant.findById({ _id: cafeId });
     const list = await RestaurantItems.find({ cafeId: cafeId });

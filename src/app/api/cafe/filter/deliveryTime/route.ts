@@ -4,13 +4,9 @@ import { NextRequest, NextResponse } from "next/server";
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json();
-    console.log(body);
-    
     const { deliveryTimeCode } = body;
 
     let cafe: any = [];
-    console.log(deliveryTimeCode);
-
     if (deliveryTimeCode === 3) {
       cafe = await Restaurant.find({});
     } else if (deliveryTimeCode === 2) {

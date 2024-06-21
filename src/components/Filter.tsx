@@ -71,7 +71,6 @@ export function FilterMenu({ setCafes }: { setCafes: Dispatch<any> }) {
             body: JSON.stringify({ deliveryTimeCode: deliveryTimeCode }),
           });
           const data = await res.json();
-          console.log(data);
 
           setCafes(data?.cafe);
         } catch (error) {

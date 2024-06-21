@@ -1,7 +1,6 @@
 "use client";
 
 import Script from "next/script";
-const Razorpay = require('razorpay');
 
 const Payment = ({ amount }: { amount: number }) => {
   const handlePayment = async (e: any) => {

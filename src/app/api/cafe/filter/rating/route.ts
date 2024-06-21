@@ -5,12 +5,10 @@ export async function POST(req: NextRequest) {
   try {
     const body = await req.json();
     const { rating } = body;
-    console.log(rating);
 
     const cafe = await Restaurant.find({
       rating: { $gte: rating },
     });
-    console.log(cafe);
 
     return NextResponse.json(
       { message: "Cafes found", cafe: cafe, success: true },

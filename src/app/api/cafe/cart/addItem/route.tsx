@@ -4,8 +4,6 @@ import { NextRequest, NextResponse } from "next/server";
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json();
-    console.log(body);
-    
     const { cafeId, itemId, itemName, price, isVeg } = body;
 
     const cartExists = await Cart.find({});
