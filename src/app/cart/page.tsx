@@ -5,9 +5,10 @@ import { useEffect } from "react";
 import Payment from "@/components/payment";
 import { CART, UPDATE_CART } from "@/utils/interface";
 import { motion } from "framer-motion";
+import { RootState } from "@/redux/store";
 
 const Cart = () => {
-  const cartItems = useSelector((store) => store.cart.items);
+  const cartItems = useSelector((store: RootState) => store.cart.items);
   let totalCost = 0;
   let data: any = [];
   cartItems.map((item: CART) => {

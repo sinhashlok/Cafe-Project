@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 import { useEffect } from "react";
 import toast, { Toaster } from "react-hot-toast";
 import { CART, MENU_ITEMS, UPDATE_CART } from "@/utils/interface";
+import { RootState } from "@/redux/store";
 
 const MenuSections = ({
   menuItem,
@@ -16,7 +17,7 @@ const MenuSections = ({
   cafeId: string;
   title: string;
 }) => {
-  const cartItems = useSelector((store) => store.cart.items);
+  const cartItems = useSelector((store: RootState) => store.cart.items);
   const dispatch = useDispatch();
   useEffect(() => {
     async function getCart() {
@@ -46,7 +47,7 @@ const MenuSections = ({
     }
     getCart();
   }, []);
-  const handleAddItem = async (item: UPDATE_CART) => {
+  const handleAddItem = async (item: MENU_ITEMS) => {
     await fetch("/api/cafe/cart/addItem", {
       method: "POST",
       headers: {
@@ -74,7 +75,7 @@ const MenuSections = ({
         console.log(data);
       });
   };
-  const handleRemoveItem = async (item: UPDATE_CART) => {
+  const handleRemoveItem = async (item: MENU_ITEMS) => {
     try {
       await fetch("/api/cafe/cart/removeItem", {
         method: "POST",
@@ -116,7 +117,7 @@ const MenuSections = ({
                 {items.itemName}
                 <span>{items.isVeg ? " 🟢" : " 🔴"}</span>
               </h1>
-              <h2>⭐️{" "}{items.rating}</h2>
+              <h2>⭐️ {items.rating}</h2>
               <h2 className="font-bold mt-4">₹{items.price}/-</h2>
             </div>
             <div className="flex flex-col items-center">

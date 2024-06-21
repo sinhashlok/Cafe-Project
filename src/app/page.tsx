@@ -4,8 +4,8 @@ import Link from "next/link";
 import CafeCard from "@/components/CafeCard";
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { useDispatch, useSelector } from "react-redux";
-import { addItem, removeItem, clearCart } from "@/redux/features/cartSlice";
+import { useDispatch } from "react-redux";
+import { addItem, clearCart } from "@/redux/features/cartSlice";
 import { CAFE, CART } from "@/utils/interface";
 import { FilterMenu } from "@/components/Filter";
 

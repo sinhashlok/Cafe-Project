@@ -1,6 +1,7 @@
 "use client";
 
 import Script from "next/script";
+const Razorpay = require('razorpay');
 
 const Payment = ({ amount }: { amount: number }) => {
   const handlePayment = async (e: any) => {
@@ -22,7 +23,7 @@ const Payment = ({ amount }: { amount: number }) => {
       description: "Test Transaction",
       image: "https://example.com/your_logo",
       order_id: data?.data?.id, //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
-      handler: function (response) {
+      handler: function (response: any) {
         alert(response.razorpay_payment_id);
         alert(response.razorpay_order_id);
         alert(response.razorpay_signature);
@@ -41,7 +42,7 @@ const Payment = ({ amount }: { amount: number }) => {
       },
     };
     const rzp1 = new Razorpay(options);
-    rzp1.on("payment.failed", function (response) {
+    rzp1.on("payment.failed", function (response: any) {
       alert(response.error.code);
       alert(response.error.description);
       alert(response.error.source);

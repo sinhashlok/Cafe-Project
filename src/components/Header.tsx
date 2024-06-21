@@ -3,10 +3,11 @@ import { useSelector } from "react-redux";
 
 // Assets
 import { LOGO_URL } from "@/utils/constants";
+import { RootState } from "@/redux/store";
 
 const Header = () => {
   // Subscribe to the cart state using a Selector
-  const cartItems = useSelector((store) => store.cart.items);
+  const cartItems = useSelector((store: RootState) => store.cart.items);
 
   return (
     <div className="flex justify-between py-4 mx-2 md:mx-24 lg:mx-52 text-lg font-semibold mb-12">
