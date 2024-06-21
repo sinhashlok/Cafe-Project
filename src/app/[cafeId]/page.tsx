@@ -20,7 +20,10 @@ const RestaurantMenu = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     async function getCart() {
-      await fetch("/api/cafe/cart/getCart")
+      await fetch("/api/cafe/cart/getCart", {
+        method: "POST",
+        body: JSON.stringify(""),
+      })
         .then(async (res) => {
           const data = await res.json();
           const cart = data?.data;

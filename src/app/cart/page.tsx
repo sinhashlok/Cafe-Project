@@ -27,7 +27,10 @@ const Cart = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     async function getCart() {
-      const res = await fetch("/api/cafe/cart/getCart");
+      const res = await fetch("/api/cafe/cart/getCart", {
+        method: "POST",
+        body: JSON.stringify(""),
+      });
       const data = await res.json();
       const cart = data?.data;
       dispatch(clearCart());
