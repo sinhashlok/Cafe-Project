@@ -66,7 +66,9 @@ const Page = () => {
 
   useEffect(() => {
     // Debouncing - 500ms
-    const getData = setTimeout(() => {
+    {
+      /*
+      const getData = setTimeout(() => {
       const handleSearch = async () => {
         await axios
           .post("/api/cafe/search", JSON.stringify({ search: searchText }))
@@ -84,6 +86,16 @@ const Page = () => {
     getData;
 
     return () => clearTimeout(getData);
+    */
+    }
+
+    const cafe = cafes.filter((cafe: CAFE) => {
+      if (cafe.name.includes(searchText)) {
+        return cafe;
+      }
+    });
+
+    setCafeList(cafe);
   }, [searchText]);
 
   return (
