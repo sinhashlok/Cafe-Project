@@ -10,7 +10,7 @@ Shows you the list of near by cafes. You can add food to cart and pay easily via
 - Payment via RazorPay
 
 ## Links
- 
+
 - aws: https://main.d1zccdlhj7l3dk.amplifyapp.com/ `(issues - read below)`
 - vercel: https://cafe-project-eight.vercel.app/ `(issues - read below)`
 
@@ -52,3 +52,7 @@ Shows you the list of near by cafes. You can add food to cart and pay easily via
 - I suspect it is due to more request being made at start, and the Free mongodb version is limiting my requests or because of serveless functionality of both applications (aws and nextjs).
 - The `aws` crashes, but `vercel` still allows to run the entire application
 - I am not facing such issues in development. (If possible please start server in local)
+
+## Fixes
+
+- Made all the db calls to local filtering and searching as data set is low, but not ideal solution, as in real scenario there will be huge data set and will required to call db for filtering and searching
