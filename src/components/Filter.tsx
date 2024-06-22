@@ -14,6 +14,8 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Slider } from "@nextui-org/react";
 import { Dispatch, useEffect, useState } from "react";
+import axios, { AxiosError, AxiosResponse } from "axios";
+import toast from "react-hot-toast";
 
 export function FilterMenu({ setCafes }: { setCafes: Dispatch<any> }) {
   const [rating, setRating] = useState<number | number[]>(3);
@@ -23,16 +25,16 @@ export function FilterMenu({ setCafes }: { setCafes: Dispatch<any> }) {
   useEffect(() => {
     const filterRating = setTimeout(() => {
       const handleRatingFilter = async () => {
-        try {
-          const res = await fetch("/api/cafe/filter/rating", {
-            method: "POST",
-            body: JSON.stringify({ rating: rating }),
+        await axios
+          .post("/api/cafe/filter/rating", JSON.stringify({ rating: rating }))
+          .then((res: AxiosResponse) => {
+            setCafes(res?.data?.cafe);
+          })
+          .catch((error: AxiosError) => {
+            console.log(error);
+            const data: any = error?.response?.data;
+            toast.error(data?.message), { duration: 6000 };
           });
-          const data = await res.json();
-          setCafes(data?.cafe);
-        } catch (error) {
-          console.log(error);
-        }
       };
       handleRatingFilter();
     }, 250);
@@ -44,16 +46,16 @@ export function FilterMenu({ setCafes }: { setCafes: Dispatch<any> }) {
   useEffect(() => {
     const filterPrice = setTimeout(() => {
       const handleDeliveryTimeFilter = async () => {
-        try {
-          const res = await fetch("/api/cafe/filter/price", {
-            method: "POST",
-            body: JSON.stringify({ price: price }),
+        await axios
+          .post("/api/cafe/filter/price", JSON.stringify({ price: price }))
+          .then((res: AxiosResponse) => {
+            setCafes(res?.data?.cafe);
+          })
+          .catch((error: AxiosError) => {
+            console.log(error);
+            const data: any = error?.response?.data;
+            toast.error(data?.message), { duration: 6000 };
           });
-          const data = await res.json();
-          setCafes(data?.cafe);
-        } catch (error) {
-          console.log(error);
-        }
       };
       handleDeliveryTimeFilter();
     }, 250);
@@ -65,17 +67,19 @@ export function FilterMenu({ setCafes }: { setCafes: Dispatch<any> }) {
   useEffect(() => {
     const filterDeliveryTime = setTimeout(() => {
       const handleDeliveryTimeFilter = async () => {
-        try {
-          const res = await fetch("/api/cafe/filter/deliveryTime", {
-            method: "POST",
-            body: JSON.stringify({ deliveryTimeCode: deliveryTimeCode }),
+        await axios
+          .post(
+            "/api/cafe/filter/deliveryTime",
+            JSON.stringify({ deliveryTimeCode: deliveryTimeCode })
+          )
+          .then((res: AxiosResponse) => {
+            setCafes(res?.data?.cafe);
+          })
+          .catch((error: AxiosError) => {
+            console.log(error);
+            const data: any = error?.response?.data;
+            toast.error(data?.message), { duration: 6000 };
           });
-          const data = await res.json();
-
-          setCafes(data?.cafe);
-        } catch (error) {
-          console.log(error);
-        }
       };
       handleDeliveryTimeFilter();
     }, 250);

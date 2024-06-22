@@ -8,6 +8,8 @@ import { useDispatch } from "react-redux";
 import { addItem, clearCart } from "@/redux/features/cartSlice";
 import { CAFE, CART } from "@/utils/interface";
 import { FilterMenu } from "@/components/Filter";
+import axios, { AxiosError, AxiosResponse } from "axios";
+import toast, { Toaster } from "react-hot-toast";
 
 const Page = () => {
   const [cafes, setCafes] = useState<any>([]);
@@ -17,18 +19,29 @@ const Page = () => {
 
   useEffect(() => {
     async function fetchData() {
-      const res = await fetch("/api/cafe/getAllCafe");
-      const data = await res.json();
-
-      setCafes(data?.data);
+      await axios
+        .get("/api/cafe/getAllCafe")
+        .then((res: AxiosResponse) => {
+          setCafes(res?.data?.data);
+        })
+        .catch((error: AxiosError) => {
+          console.log(error);
+          const data: any = error?.response?.data;
+          toast.error(data?.message), { duration: 6000 };
+        });
     }
     async function getCart() {
-      const res = await fetch("/api/cafe/cart/getCart", {
-        method: "POST",
-        body: JSON.stringify(""),
-      });
-      const data = await res.json();
-      const cart = data?.data;
+      const cart = await axios
+        .get("/api/cafe/cart/getCart")
+        .then((res: AxiosResponse) => {
+          return res?.data?.data;
+        })
+        .catch((error: AxiosError) => {
+          console.log(error);
+          const data: any = error?.response?.data;
+          toast.error(data?.message), { duration: 6000 };
+        });
+
       dispatch(clearCart());
       cart?.map((item: CART) => {
         for (let i = item.count; i > 0; i--) {
@@ -53,16 +66,16 @@ const Page = () => {
     // Debouncing - 500ms
     const getData = setTimeout(() => {
       const handleSearch = async () => {
-        try {
-          const res = await fetch("/api/cafe/search", {
-            method: "POST",
-            body: JSON.stringify({ search: searchText }),
+        await axios
+          .post("/api/cafe/search", JSON.stringify({ search: searchText }))
+          .then((res: AxiosResponse) => {
+            setCafes(res?.data?.cafe);
+          })
+          .catch((error: AxiosError) => {
+            console.log(error);
+            const data: any = error?.response?.data;
+            toast.error(data?.message), { duration: 6000 };
           });
-          const data = await res.json();
-          setCafes(data?.cafe);
-        } catch (error) {
-          console.log(error);
-        }
       };
       handleSearch();
     }, 500);
@@ -73,6 +86,7 @@ const Page = () => {
 
   return (
     <div className="px-8 py-8 font">
+      <Toaster />
       <motion.div
         initial={{ y: "20vh", opacity: 0 }}
         animate={{

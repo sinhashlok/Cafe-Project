@@ -6,6 +6,8 @@ import Payment from "@/components/payment";
 import { CART, UPDATE_CART } from "@/utils/interface";
 import { motion } from "framer-motion";
 import { RootState } from "@/redux/store";
+import axios, { AxiosError, AxiosResponse } from "axios";
+import toast from "react-hot-toast";
 
 const Cart = () => {
   const cartItems = useSelector((store: RootState) => store.cart.items);
@@ -27,18 +29,23 @@ const Cart = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     async function getCart() {
-      const res = await fetch("/api/cafe/cart/getCart", {
-        method: "POST",
-        body: JSON.stringify(""),
-      });
-      const data = await res.json();
-      const cart = data?.data;
+      const cart = await axios
+        .get("/api/cafe/cart/getCart")
+        .then((res: AxiosResponse) => {
+          return res?.data?.data;
+        })
+        .catch((error: AxiosError) => {
+          console.log(error);
+          const data: any = error?.response?.data;
+          toast.error(data?.message), { duration: 6000 };
+        });
+
       dispatch(clearCart());
       cart?.map((item: CART) => {
         for (let i = item.count; i > 0; i--) {
           dispatch(
             addItem({
-              _id: item.itemId,
+              _id: item._id,
               itemName: item.itemName,
               price: item.price,
               rating: item.rating,
@@ -53,67 +60,60 @@ const Cart = () => {
   }, []);
 
   const handleAdd = async (item: UPDATE_CART) => {
-    try {
-      await fetch("/api/cafe/cart/addItem", {
-        method: "POST",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
+    await axios
+      .post(
+        "/api/cafe/cart/addItem",
+        JSON.stringify({
           cafeId: item.cafeId,
           itemId: item._id,
           itemName: item.itemName,
           price: item.price,
           isVeg: item.isVeg,
-        }),
+        })
+      )
+      .then(() => {
+        dispatch(addItem(item));
+      })
+      .catch((error: AxiosError) => {
+        console.log(error);
+        const data: any = error?.response?.data;
+        toast.error(data?.message), { duration: 6000 };
       });
-      dispatch(addItem(item));
-    } catch (error) {
-      console.log(error);
-    }
   };
 
   const handleRemove = async (item: UPDATE_CART) => {
-    try {
-      console.log(item);
-
-      await fetch("/api/cafe/cart/removeItem", {
-        method: "POST",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ itemId: item._id }),
+    await axios
+      .post("/api/cafe/cart/addItem", JSON.stringify({ itemId: item._id }))
+      .then(() => {
+        dispatch(
+          removeItem({
+            _id: item.itemId,
+            itemName: item.itemName,
+            price: item.price,
+            rating: item.rating,
+            isVeg: item.isVeg,
+            cafeId: item.cafeId,
+          })
+        );
+      })
+      .catch((error: AxiosError) => {
+        console.log(error);
+        const data: any = error?.response?.data;
+        toast.error(data?.message), { duration: 6000 };
       });
-      dispatch(
-        removeItem({
-          _id: item.itemId,
-          itemName: item.itemName,
-          price: item.price,
-          rating: item.rating,
-          isVeg: item.isVeg,
-          cafeId: item.cafeId,
-        })
-      );
-    } catch (error) {
-      console.log(error);
-    }
   };
 
   const handleClear = async () => {
-    try {
-      await fetch("/api/cafe/cart/clearCart", {
-        method: "POST",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-        },
+    await axios
+      .post("/api/cafe/cart/clearCart")
+      .then(() => {
+        dispatch(clearCart());
+      })
+      .catch((error: AxiosError) => {
+        console.log(error);
+        const data: any = error?.response?.data;
+        toast.error(data?.message), { duration: 6000 };
       });
-      dispatch(clearCart());
-    } catch (error) {
-      console.log(error);
-    }
   };
 
   return (

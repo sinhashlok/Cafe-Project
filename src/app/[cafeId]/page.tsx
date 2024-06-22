@@ -7,9 +7,10 @@ import { usePathname } from "next/navigation";
 import { CAFE, CAFE_MENU } from "@/utils/interface";
 import { MapPin } from "lucide-react";
 import { CART } from "@/utils/interface";
-import { RootState } from "@/redux/store";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { addItem, clearCart } from "@/redux/features/cartSlice";
+import axios, { AxiosError, AxiosResponse } from "axios";
+import toast from "react-hot-toast";
 
 const RestaurantMenu = () => {
   const pathname = usePathname();
@@ -20,46 +21,48 @@ const RestaurantMenu = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     async function getCart() {
-      await fetch("/api/cafe/cart/getCart", {
-        method: "POST",
-        body: JSON.stringify(""),
-      })
-        .then(async (res) => {
-          const data = await res.json();
-          const cart = data?.data;
-          dispatch(clearCart());
-          cart?.map((item: CART) => {
-            for (let i = item.count; i > 0; i--) {
-              dispatch(
-                addItem({
-                  _id: item.itemId,
-                  itemName: item.itemName,
-                  price: item.price,
-                  rating: item.rating,
-                  isVeg: item.isVeg,
-                  cafeId: item.cafeId,
-                })
-              );
-            }
-          });
+      const cart = await axios
+        .get("/api/cafe/cart/getCart")
+        .then((res: AxiosResponse) => {
+          return res?.data?.data;
         })
-        .catch((err) => {
-          console.log(err);
+        .catch((error: AxiosError) => {
+          console.log(error);
+          const data: any = error?.response?.data;
+          toast.error(data?.message), { duration: 6000 };
         });
+
+      dispatch(clearCart());
+      cart?.map((item: CART) => {
+        for (let i = item.count; i > 0; i--) {
+          dispatch(
+            addItem({
+              _id: item._id,
+              itemName: item.itemName,
+              price: item.price,
+              rating: item.rating,
+              isVeg: item.isVeg,
+              cafeId: item.cafeId,
+            })
+          );
+        }
+      });
     }
     async function fetchData() {
-      const res = await fetch("/api/cafe/getCafeById", {
-        method: "POST",
-        body: JSON.stringify({ cafeId: cafeId }),
-      });
-      const data = await res.json();
-
-      setCafe(data?.data[0]);
-      setCafeMenu(data?.data[1][0]);
+      await axios
+        .post("/api/cafe/getCafeById", JSON.stringify({ cafeId: cafeId }))
+        .then((res: AxiosResponse) => {
+          setCafe(res.data?.data[0]);
+          setCafeMenu(res.data?.data[1][0]);
+        })
+        .catch((error: AxiosError) => {
+          console.log(error);
+          const data: any = error?.response?.data;
+          toast.error(data?.message), { duration: 6000 };
+        });
     }
 
     fetchData();
-
     getCart();
   }, []);
 

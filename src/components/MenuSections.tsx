@@ -46,6 +46,7 @@ const MenuSections = ({
         console.log(data);
       });
   };
+
   const handleRemoveItem = async (item: MENU_ITEMS) => {
     try {
       await fetch("/api/cafe/cart/removeItem", {
