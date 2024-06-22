@@ -34,7 +34,7 @@ const Page = () => {
     }
     async function getCart() {
       const cart = await axios
-        .get("/api/cafe/cart/getCart")
+        .post("/api/cafe/cart/getCart", JSON.stringify({}))
         .then((res: AxiosResponse) => {
           return res?.data?.data;
         })
