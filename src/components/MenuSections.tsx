@@ -17,8 +17,10 @@ const MenuSections = ({
   title: string;
 }) => {
   const cartItems = useSelector((store: RootState) => store.cart.items);
+
   const dispatch = useDispatch();
   const handleAddItem = async (item: MENU_ITEMS) => {
+
     await fetch("/api/cafe/cart/addItem", {
       method: "POST",
       headers: {

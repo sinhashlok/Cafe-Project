@@ -8,6 +8,9 @@ export async function POST(req: NextRequest) {
 
     const cartExists = await Cart.find({});
     if (cartExists.length != 0) {
+      console.log(cartExists[0].cafeId.toString(), cafeId);
+      console.log(cartExists[0].cafeId.toString() === cafeId);
+      
       if (cartExists[0].cafeId.toString() === cafeId) {
         let countItem = null;
         cartExists.map((item: any) => {

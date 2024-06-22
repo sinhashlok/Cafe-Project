@@ -13,6 +13,7 @@ Shows you the list of near by cafes. You can add food to cart and pay easily via
 
 - aws: https://main.d1zccdlhj7l3dk.amplifyapp.com/ `(issues - read below)`
 - vercel: https://cafe-project-eight.vercel.app/ `(issues - read below)`
+- video: https://drive.google.com/file/d/1o8NDCMZK3j3VU5C8NvWXFJBD-toQS5K-/view?usp=sharing
 
 ## Tools
 
@@ -55,4 +56,6 @@ Shows you the list of near by cafes. You can add food to cart and pay easily via
 
 ## Fixes
 
-- Made all the db calls to local filtering and searching as data set is low, but not ideal solution, as in real scenario there will be huge data set and will required to call db for filtering and searching
+- Made all the db calls to local filtering and searching as data set is low, but not ideal solution, as in real scenario there will be huge data set and will required to call db for filtering and searching 
+<br />
+(I have commented the code for db calling for filtering and searching)

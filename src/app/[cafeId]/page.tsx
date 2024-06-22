@@ -37,7 +37,8 @@ const RestaurantMenu = () => {
         for (let i = item.count; i > 0; i--) {
           dispatch(
             addItem({
-              _id: item._id,
+              _id: item.itemId,
+              itemId: item.itemId,
               itemName: item.itemName,
               price: item.price,
               rating: item.rating,

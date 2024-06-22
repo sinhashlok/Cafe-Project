@@ -42,13 +42,15 @@ const Cart = () => {
 
       dispatch(clearCart());
       cart?.map((item: CART) => {
+        console.log(item);
+
         for (let i = item.count; i > 0; i--) {
           dispatch(
             addItem({
               _id: item._id,
+              itemId: item.itemId,
               itemName: item.itemName,
               price: item.price,
-              rating: item.rating,
               isVeg: item.isVeg,
               cafeId: item.cafeId,
             })
@@ -60,12 +62,14 @@ const Cart = () => {
   }, []);
 
   const handleAdd = async (item: UPDATE_CART) => {
+    console.log(item);
+
     await axios
       .post(
         "/api/cafe/cart/addItem",
         JSON.stringify({
           cafeId: item.cafeId,
-          itemId: item._id,
+          itemId: item.itemId,
           itemName: item.itemName,
           price: item.price,
           isVeg: item.isVeg,
@@ -82,15 +86,20 @@ const Cart = () => {
   };
 
   const handleRemove = async (item: UPDATE_CART) => {
+    console.log(item);
+
     await axios
-      .post("/api/cafe/cart/addItem", JSON.stringify({ itemId: item._id }))
+      .post(
+        "/api/cafe/cart/removeItem",
+        JSON.stringify({ itemId: item.itemId })
+      )
       .then(() => {
         dispatch(
           removeItem({
-            _id: item.itemId,
+            _id: item._id,
+            itemId: item.itemId,
             itemName: item.itemName,
             price: item.price,
-            rating: item.rating,
             isVeg: item.isVeg,
             cafeId: item.cafeId,
           })
