@@ -13,6 +13,7 @@ import toast, { Toaster } from "react-hot-toast";
 
 const Page = () => {
   const [cafes, setCafes] = useState<any>([]);
+  const [cafeList, setCafeList] = useState<any>([]);
   const [searchText, setSearchText] = useState<any>("");
   const dispatch = useDispatch();
   let time: number = 0;
@@ -23,6 +24,7 @@ const Page = () => {
         .get("/api/cafe/getAllCafe")
         .then((res: AxiosResponse) => {
           setCafes(res?.data?.data);
+          setCafeList(res?.data?.data);
         })
         .catch((error: AxiosError) => {
           console.log(error);
@@ -69,7 +71,7 @@ const Page = () => {
         await axios
           .post("/api/cafe/search", JSON.stringify({ search: searchText }))
           .then((res: AxiosResponse) => {
-            setCafes(res?.data?.cafe);
+            setCafeList(res?.data?.cafe);
           })
           .catch((error: AxiosError) => {
             console.log(error);
@@ -106,10 +108,10 @@ const Page = () => {
               setSearchText(e.target.value);
             }}
           />
-          <FilterMenu setCafes={setCafes} />
+          <FilterMenu setCafeList={setCafeList} cafes={cafes} />
         </div>
       </motion.div>
-      {cafes.length === 0 ? (
+      {cafeList.length === 0 ? (
         <div className="w-full flex items-center justify-center">
           No Cafe Found
         </div>
@@ -119,7 +121,7 @@ const Page = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1, transition: { duration: 0.75, delay: 0.24 } }}
         >
-          {cafes.map((cafe: CAFE) => {
+          {cafeList.map((cafe: CAFE) => {
             time += 0.25;
             return (
               <div

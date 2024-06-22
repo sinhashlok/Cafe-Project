@@ -10,7 +10,7 @@ const CafeCard = ({
   delay,
 }: {
   name: string;
-  rating: string;
+  rating: number;
   deliveryTime: number;
   costForTwo: number;
   delay: number;

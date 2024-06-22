@@ -2,7 +2,7 @@ import mongoose, { Schema, Document } from "mongoose";
 
 export interface restaurantInterface extends Document {
   name: string;
-  rating: string;
+  rating: number;
   deliveryTime: number;
   costForTwo: number;
 }
@@ -13,7 +13,7 @@ const restaurantScehma: Schema<restaurantInterface> = new Schema({
     required: true,
   },
   rating: {
-    type: String,
+    type: Number,
     required: true,
   },
   deliveryTime: {

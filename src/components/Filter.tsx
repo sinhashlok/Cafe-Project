@@ -16,19 +16,29 @@ import { Slider } from "@nextui-org/react";
 import { Dispatch, useEffect, useState } from "react";
 import axios, { AxiosError, AxiosResponse } from "axios";
 import toast from "react-hot-toast";
+import { CAFE } from "@/utils/interface";
 
-export function FilterMenu({ setCafes }: { setCafes: Dispatch<any> }) {
+export function FilterMenu({
+  setCafeList,
+  cafes,
+}: {
+  setCafeList: Dispatch<any>;
+  cafes: any;
+}) {
+  // QUERY FROM DB
+  {
+    /*
   const [rating, setRating] = useState<number | number[]>(3);
   const [price, setPrice] = useState<number | number[]>([0, 2000]);
   const [deliveryTimeCode, setDeliveryTimeCode] = useState<0 | 1 | 2 | 3>(0);
-
   useEffect(() => {
     const filterRating = setTimeout(() => {
       const handleRatingFilter = async () => {
         await axios
           .post("/api/cafe/filter/rating", JSON.stringify({ rating: rating }))
           .then((res: AxiosResponse) => {
-            setCafes(res?.data?.cafe);
+            // setCafes(res?.data?.cafe);
+
           })
           .catch((error: AxiosError) => {
             console.log(error);
@@ -86,7 +96,44 @@ export function FilterMenu({ setCafes }: { setCafes: Dispatch<any> }) {
 
     filterDeliveryTime;
     return () => clearTimeout(filterDeliveryTime);
-  }, [deliveryTimeCode]);
+  }, [deliveryTimeCode]); 
+  */
+  }
+
+  const handleRating = (rating: any) => {
+    const cafe = cafes.filter((cafe: CAFE) => {
+      return cafe.rating >= rating;
+    });
+    setCafeList(cafe);
+  };
+
+  const handlePrice = (price: any) => {
+    const cafe = cafes.filter((cafe: CAFE) => {
+      if (cafe.costForTwo >= price[0] && cafe.costForTwo <= price[1]) {
+        return cafe;
+      }
+    });
+
+    setCafeList(cafe);
+  };
+
+  const handleDeliveryTimeCode = (code: number) => {
+    const cafe = cafes.filter((cafe: CAFE) => {
+      if (code === 2) {
+        return cafe.deliveryTime >= 50;
+      } else if (code === 1) {
+        return cafe.deliveryTime <= 50;
+      } else if (code === 0) {
+        return cafe.deliveryTime <= 30;
+      }
+    });
+
+    if (code === 3) {
+      setCafeList(cafes);
+    } else {
+      setCafeList(cafe);
+    }
+  };
 
   return (
     <NextUIProvider>
@@ -110,7 +157,7 @@ export function FilterMenu({ setCafes }: { setCafes: Dispatch<any> }) {
                 defaultValue={3}
                 className="max-w-md"
                 onChange={(e) => {
-                  setRating(e);
+                  handleRating(e);
                 }}
               />
             </DropdownMenuItem>
@@ -124,7 +171,7 @@ export function FilterMenu({ setCafes }: { setCafes: Dispatch<any> }) {
                 defaultValue={[200, 1500]}
                 formatOptions={{ style: "currency", currency: "INR" }}
                 className="max-w-md"
-                onChange={(e) => setPrice(e)}
+                onChange={(e) => handlePrice(e)}
               />
             </DropdownMenuItem>
             <DropdownMenuSeparator />
@@ -134,25 +181,25 @@ export function FilterMenu({ setCafes }: { setCafes: Dispatch<any> }) {
                 <div className="flex flex-col justify-between space-y-5">
                   <div
                     className="border-2 border-slate-300 hover:bg-slate-300 font-semibold flex items-center justify-center p-2 rounded-md"
-                    onClick={() => setDeliveryTimeCode(0)}
+                    onClick={() => handleDeliveryTimeCode(0)}
                   >
                     {"< 30"}
                   </div>
                   <div
                     className="border-2 border-slate-300 hover:bg-slate-300 font-semibold flex items-center justify-center p-2 rounded-md"
-                    onClick={() => setDeliveryTimeCode(1)}
+                    onClick={() => handleDeliveryTimeCode(1)}
                   >
                     {"< 50"}
                   </div>
                   <div
                     className="border-2 border-slate-300 hover:bg-slate-300 font-semibold flex items-center justify-center p-2 rounded-md"
-                    onClick={() => setDeliveryTimeCode(2)}
+                    onClick={() => handleDeliveryTimeCode(2)}
                   >
                     {"> 50"}
                   </div>
                   <div
                     className="border-2 border-slate-300 hover:bg-slate-300 font-semibold flex items-center justify-center p-2 rounded-md"
-                    onClick={() => setDeliveryTimeCode(3)}
+                    onClick={() => handleDeliveryTimeCode(3)}
                   >
                     All Delivery time
                   </div>

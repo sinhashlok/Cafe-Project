@@ -1,7 +1,7 @@
 export interface CAFE {
   _id: string;
   name: string;
-  rating: string;
+  rating: number;
   deliveryTime: number;
   costForTwo: number;
   reviews: number;
@@ -10,7 +10,7 @@ export interface CAFE {
 export interface MENU_ITEMS {
   _id: string;
   itemName: string;
-  rating: string;
+  rating: number;
   price: string;
   isVeg: boolean;
 }
@@ -31,7 +31,7 @@ export interface CART {
   itemName: string;
   price: string;
   _id: string;
-  rating: string;
+  rating: number;
 }
 
 export interface UPDATE_CART {
@@ -39,7 +39,7 @@ export interface UPDATE_CART {
   cafeId: string;
   itemName: string;
   _id: string;
-  rating: string;
+  rating: number;
   price: string;
   isVeg: boolean;
 }
